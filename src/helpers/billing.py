@@ -11,6 +11,15 @@ if "sk_test" in STRIPE_SECRET_KEY and not DJANGO_DEBUG:
 
 stripe.api_key = STRIPE_SECRET_KEY
 
+def serialize_subscription_data(subscription_response):
+    status = subscription_response.status
+    current_period_start = date_utils.timestamp_as_datetime(subscription_response.current_period_start)
+    current_period_end = date_utils.timestamp_as_datetime(subscription_response.current_period_end)
+    return {
+        "current_period_start": current_period_start,
+        "current_period_end": current_period_end,
+        "status": status,
+        }
 
 def create_customer(
         name="", 
@@ -114,15 +123,11 @@ def get_checkout_customer_plan(session_id):
     # current_period_start
     # current_period_end
     sub_plan = sub_r.plan
-
-    current_period_start = date_utils.timestamp_as_datetime(sub_r.current_period_start)
-    current_period_end = date_utils.timestamp_as_datetime(sub_r.current_period_end)
-
+    subscription_data = serialize_subscription_data(sub_r)
     data = {
         "customer_id": customer_id,
         "plan_id": sub_plan.id,
         "sub_stripe_id": sub_stripe_id,
-        "current_period_start": current_period_start,
-        "current_period_end": current_period_end,
+        **subscription_data,
     }
     return data
