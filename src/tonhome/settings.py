@@ -125,7 +125,7 @@ DATABASES = {
     }
 }
 
-CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30) # 30 seconds
+CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=300) # 300 seconds
 DATABASE_URL = config("DATABASE_URL", default=None)
 
 if DATABASE_URL is not None:
