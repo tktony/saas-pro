@@ -1,0 +1,13 @@
+name: 1 - Hello World GitHub Actions 
+
+on: # workflow trigger 
+  push: # Event that triggers the workflow - git push
+    branches:
+      - main # Branch to trigger the workflow
+
+jobs: # jobs to run
+  hello:
+    runs-on: ubuntu-latest # runner to run the job
+    steps:
+      - name: Hello World
+        run: echo "Hello World" # command to run
