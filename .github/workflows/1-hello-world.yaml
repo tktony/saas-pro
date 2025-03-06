@@ -5,7 +5,7 @@ on: # workflow trigger
   # schedule:
   #   - cron: '30 15 * * *' # every day at 3:30 PM UTC
   # push: # git push
-  #   branches:
+  #   branch:
   #     - main 
 
 jobs: # jobs to run
