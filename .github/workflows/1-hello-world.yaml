@@ -1,9 +1,10 @@
 name: 1 - Hello World GitHub Actions 
 
 on: # workflow trigger 
-  push: # Event that triggers the workflow - git push
+  workflow_dispatch: 
+  push: # git push
     branches:
-      - main # Branch to trigger the workflow
+      - main 
 
 jobs: # jobs to run
   hello:
