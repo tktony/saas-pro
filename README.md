@@ -52,13 +52,13 @@ c:\Python312\python.exe -m venv venv
 pip install pip --upgrade && pip install -r requirements.txt
 ```
 
-### Sample dotenv to dotnev
+### Sample .env to .nev
 
 ```bash
 cp .env.sample .env
 cat .env
 ```
-Values include:
+Values:
 - `DJANGO_DEBUG=1`
 - `DJANGO_SECRET_KEY=""`
 - `DATABASE_URL=""`
@@ -177,6 +177,7 @@ python manage.py vendor_pull
 
 
 ### Run the Server
+### And ready to go!🚀
 
 ```bash
 python manage.py runserver
