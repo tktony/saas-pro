@@ -177,8 +177,7 @@ python manage.py vendor_pull
 
 
 ### Run the Server
-### And ready to go!🚀
-
 ```bash
 python manage.py runserver
 ```
+### And ready to go!🚀
